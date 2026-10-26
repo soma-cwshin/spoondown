@@ -1,0 +1,157 @@
+/* 숟가락 내려놔 / Spoon Down 웹페이지 공용 스타일.
+   색은 docs/design/shared/BRAND.md 2절 토큰 그대로. 외부 스크립트 없음. */
+:root {
+  --ink: #1D2233;
+  --paper: #FCFAF5;
+  --bg: #F4F4F0;
+  --surface: #FFFFFF;
+  --surface-2: #ECEDE7;
+  --line: #D6D8D1;
+  --text: #1D2233;
+  --text-2: #4F5565;
+  --text-3: #626876;
+  --amber: #EFA22B;
+  --danger: #EC5B2E;
+  --btn: #1D2233;
+  --on-btn: #FCFAF5;
+  --focus: #1D2233;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #1A1F2B;
+    --bg: #0F121A;
+    --surface: #161A24;
+    --surface-2: #1E2330;
+    --line: #2B3140;
+    --text: #EEF0EC;
+    --text-2: #B5BAC6;
+    --text-3: #9AA0AD;
+    --danger: #FB7B58;
+    --btn: #EEF0EC;
+    --on-btn: #1D2233;
+    --focus: #EEF0EC;
+  }
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Gothic A1", -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", "Segoe UI", Roboto, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.7;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+a { color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible, .btn:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; border-radius: 6px; }
+
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 16px; top: 12px; background: var(--surface); padding: 8px 12px; z-index: 10; }
+
+.band { height: 6px; background: var(--amber); }
+
+.wrap { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+
+/* 머리 */
+.site-head { padding: 18px 0 8px; }
+.site-head .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 900; font-size: 18px; letter-spacing: -0.01em; }
+.brand svg { width: 32px; height: 32px; flex: none; }
+.lang { font-weight: 800; font-size: 14px; text-decoration: none; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); white-space: nowrap; }
+.lang:hover { background: var(--surface-2); }
+
+/* 본문 */
+main { padding: 16px 0 48px; }
+.eyebrow {
+  font-family: "Barlow Condensed", "Gothic A1", sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-2);
+  margin: 24px 0 4px;
+  font-feature-settings: "tnum";
+}
+h1 { font-weight: 900; font-size: clamp(28px, 7vw, 40px); line-height: 1.25; letter-spacing: -0.02em; margin: 4px 0 16px; }
+h2 { font-weight: 800; font-size: 21px; line-height: 1.4; letter-spacing: -0.01em; margin: 40px 0 10px; }
+h3 { font-weight: 800; font-size: 17px; line-height: 1.45; margin: 24px 0 6px; }
+p, ul, ol, dl { margin: 0 0 14px; }
+ul, ol { padding-left: 1.3em; }
+li { margin: 4px 0; }
+strong { font-weight: 800; }
+.lead { font-size: 18px; color: var(--text-2); }
+.muted { color: var(--text-2); }
+.small { font-size: 14px; color: var(--text-3); }
+.num { font-family: "Barlow Condensed", "Gothic A1", sans-serif; font-weight: 600; font-feature-settings: "tnum"; }
+
+.card { background: var(--surface); border-radius: 20px; padding: 20px 22px; margin: 16px 0; }
+.card > :last-child { margin-bottom: 0; }
+.card h2:first-child, .card h3:first-child { margin-top: 0; }
+.note { background: var(--surface-2); border-radius: 16px; padding: 14px 18px; margin: 16px 0; }
+.note > :last-child { margin-bottom: 0; }
+
+.toc { background: var(--surface); border-radius: 16px; padding: 14px 18px 14px 36px; margin: 16px 0 8px; }
+.toc li { margin: 2px 0; }
+
+table { width: 100%; border-collapse: collapse; margin: 8px 0 16px; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 8px; border-bottom: 1px solid var(--line); }
+th { font-weight: 800; background: var(--surface-2); }
+.table-wrap { overflow-x: auto; }
+
+dl.facts { display: grid; grid-template-columns: max-content 1fr; gap: 6px 16px; }
+dl.facts dt { font-weight: 800; }
+dl.facts dd { margin: 0; }
+
+/* 첫 화면 */
+.hero { background: var(--paper); border-radius: 28px; padding: 32px 24px 28px; margin: 8px 0 24px; text-align: center; }
+.hero .lockup { width: 100%; max-width: 360px; height: auto; color: var(--text); }
+.hero .mark { width: 96px; height: 96px; color: var(--text); }
+.hero h1 { margin-top: 18px; }
+.hero .lead { margin: 0 auto 20px; max-width: 30em; }
+
+.features { list-style: none; padding: 0; display: grid; gap: 12px; margin: 16px 0; }
+.features li { background: var(--surface); border-radius: 20px; padding: 18px 20px; margin: 0; }
+.features .k { font-family: "Barlow Condensed", "Gothic A1", sans-serif; font-weight: 600; font-size: 15px; letter-spacing: 0.06em; color: var(--text-3); display: block; }
+.features h3 { margin: 2px 0 4px; }
+.features p { margin: 0; color: var(--text-2); }
+
+/* 스토어 단추 */
+.stores { display: grid; grid-template-columns: 1fr; gap: 10px; margin: 8px 0; }
+@media (min-width: 520px) { .stores { grid-template-columns: 1fr 1fr; } }
+.btn {
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  min-height: 60px; padding: 10px 18px; border-radius: 16px;
+  background: var(--btn); color: var(--on-btn); text-decoration: none; line-height: 1.25;
+}
+.btn:hover { opacity: .92; }
+.btn small { font-size: 13px; font-weight: 500; opacity: .85; }
+.btn span { font-size: 18px; font-weight: 800; }
+.stores.big .btn { min-height: 72px; }
+.stores.big .btn span { font-size: 20px; }
+
+/* 근거 */
+.evidence { list-style: none; padding: 0; margin: 0; }
+.evidence > li { background: var(--surface); border-radius: 20px; padding: 18px 20px; margin: 12px 0; }
+.evidence h2 { margin: 0 0 8px; font-size: 19px; }
+.evidence .label { font-weight: 800; }
+.cite { font-size: 14px; color: var(--text-2); }
+
+/* 꼬리 */
+.site-foot { border-top: 1px solid var(--line); padding: 24px 0 40px; font-size: 14px; color: var(--text-2); }
+.site-foot nav { display: flex; flex-wrap: wrap; gap: 6px 18px; margin-bottom: 14px; }
+.site-foot nav a { font-weight: 800; color: var(--text); }
+.site-foot .biz { margin: 0 0 10px; line-height: 1.8; }
+.site-foot .biz span + span::before { content: "·"; margin: 0 6px; color: var(--text-3); }
+
+/* 로고의 출출해지는 시간 칸(주홍은 이 한 곳만) */
+.dt { stroke: var(--danger); }
