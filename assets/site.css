@@ -134,6 +134,8 @@ dl.facts dd { margin: 0; }
   background: var(--btn); color: var(--on-btn); text-decoration: none; line-height: 1.25;
 }
 .btn:hover { opacity: .92; }
+.btn.soon { background: var(--surface-2); color: var(--text-2); box-shadow: inset 0 0 0 1px var(--line); cursor: default; }
+.btn.soon:hover { opacity: 1; }
 .btn small { font-size: 13px; font-weight: 500; opacity: .85; }
 .btn span { font-size: 18px; font-weight: 800; }
 .stores.big .btn { min-height: 72px; }
